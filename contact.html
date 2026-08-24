@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="fa">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>تماس با ما و رزرو شو روم | Zarrin Noir</title>
+  <meta name="description" content="ارتباط با مشاوران اختصاصی گالری زرین نوآر و رزرو وقت بازدید حضوری در شو روم‌های زعفرانیه و فرشته." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts: Vazirmatn & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Tailwind Custom Configuration -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#131313",
+            "surface-container-lowest": "#0e0e0e",
+            "background": "#131313",
+            "outline-variant": "#4d463a",
+            "primary": "#e5c484",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d0c5b5",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "primary-fixed": "#ffdea0"
+          },
+          fontFamily: {
+            "sans": ["Vazirmatn", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body class="antialiased selection:bg-primary selection:text-surface bg-[#131313] text-[#e5e2e1]">
+
+  <!-- TopNavBar -->
+  <nav class="fixed top-0 w-full z-50 bg-[#131313]/90 backdrop-blur-xl border-b-[0.5px] border-white/20 shadow-2xl transition-all duration-500" id="main-nav">
+    <div class="max-w-[1440px] mx-auto flex flex-row-reverse justify-between items-center px-6 md:px-20 py-4 w-full">
+      <a class="font-headline-lg text-2xl md:text-3xl text-primary font-black uppercase tracking-widest flex items-center gap-2" href="index.html">
+        <span class="text-gradient-gold">ZARRIN NOIR</span>
+      </a>
+
+      <ul class="hidden md:flex flex-row-reverse gap-8 items-center">
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="index.html">خانه</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="products.html">فروشگاه</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="about.html">درباره ما</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="blog.html">مجله</a></li>
+        <li><a class="font-body-md text-primary font-bold transition-colors bg-white/5 px-4 py-1.5 rounded" href="contact.html">تماس با ما</a></li>
+      </ul>
+
+      <div class="flex flex-row-reverse gap-3 md:gap-4 items-center">
+        <a href="products.html" class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full" title="فروشگاه">
+          <span class="material-symbols-outlined">shopping_bag</span>
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface-variant hover:text-primary p-2">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#131313]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-right">
+        <a class="text-on-surface hover:text-primary py-2 border-b border-white/5" href="index.html">خانه</a>
+        <a class="text-on-surface hover:text-primary py-2 border-b border-white/5" href="products.html">فروشگاه جواهرات</a>
+        <a class="text-on-surface hover:text-primary py-2 border-b border-white/5" href="about.html">درباره ما و اصالت</a>
+        <a class="text-on-surface hover:text-primary py-2 border-b border-white/5" href="blog.html">مجله تخصصی</a>
+        <a class="text-primary font-bold py-2" href="contact.html">تماس و رزرو شو روم</a>
+        <div class="pt-4 mt-2 border-t border-white/10 flex justify-center">
+          <a href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank" class="btn-primary w-full py-3 rounded-full text-center">
+            مشاوره و خرید در واتساپ
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Floating WhatsApp VIP Button -->
+  <a aria-label="تماس در واتساپ" class="fixed bottom-8 left-8 z-[100] glass-panel p-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 deep-shadow group" href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank">
+    <svg class="w-8 h-8 text-primary group-hover:text-primary-fixed" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+    </svg>
+  </a>
+
+  <!-- Header with Video Texture -->
+  <header class="relative w-full h-[55vh] min-h-[440px] flex items-center justify-center overflow-hidden pt-24 hero-sticky-container">
+    <div class="absolute inset-0 z-0 hero-video-wrapper">
+      <video class="hero-video-element" autoplay muted loop playsinline poster="https://lh3.googleusercontent.com/aida-public/AB6AXuAa0sRS1i2ibzxJHx_5ayOEsbvFfhd9mf_2rLm3ZpWvfi-732L-ziNsyAqZN_JE8vRxNvZoTDG95ptZo1Ne3wEuaeyszv3azFTlfjDwLBERC8BquHz3QglaJV9HCbWah6vpLSSEclWf18g5WdhBkAk4zi9lE9hfTTf5gn3XD0fKBo19AqcbW9hLNsE9aqB9Zc8Z9PmScfqITSRjAeTEw5iVeD2oT0kuoSo1eIpmvGcxH3DwffKULmY_PQ">
+        <source src="https://novaitland.com/wp-content/uploads/2026/08/Gold-Bar-Becoming-Jewelry-Collec1.mp4" type="video/mp4">
+      </video>
+      <div class="hero-vignette-overlay"></div>
+    </div>
+
+    <div class="relative z-10 text-center max-w-3xl px-4 flex flex-col items-center gap-4 hero-content-anim">
+      <span class="badge-gold">خدمات VIP مشتریان</span>
+      <h1 class="text-3xl md:text-5xl font-black text-on-surface">
+        تماس و رزرو <span class="text-gradient-gold">شو روم اختصاصی</span>
+      </h1>
+      <p class="text-on-surface-variant text-sm md:text-base font-light leading-relaxed">
+        پاسخگویی سریع، مشاوره تخصصی سایزبندی و هماهنگی برای بازدید خصوصی در گالری‌های تهران.
+      </p>
+    </div>
+  </header>
+
+  <!-- Contact & Booking Main Section -->
+  <main class="max-w-[1440px] mx-auto px-6 md:px-20 py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Showroom Locations & Direct Channels -->
+      <div class="lg:col-span-5 space-y-8">
+        <div>
+          <span class="text-xs text-primary font-bold tracking-widest uppercase block mb-2">اطلاعات ارتباطی</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-on-surface mb-4">با ما در ارتباط باشید</h2>
+          <p class="text-xs md:text-sm text-on-surface-variant font-light leading-relaxed">
+            جهت تسریع در پاسخگویی، پیشنهاد می‌کنیم از طریق واتساپ مستقیم با کارشناسان فروش ما گفتگو کنید.
+          </p>
+        </div>
+
+        <!-- WhatsApp Quick Action Box -->
+        <a href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank" class="glass-panel p-6 rounded-2xl border border-primary/40 flex items-center gap-5 hover:border-primary transition-all group block">
+          <div class="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-on-surface group-hover:text-primary transition-colors">مشاوره اختصاصی واتساپ</h3>
+            <p class="text-xs text-on-surface-variant font-light">پاسخگویی سریع ۲۴ ساعته | پشتیبانی سفارشات</p>
+          </div>
+        </a>
+
+        <!-- Locations List -->
+        <div class="space-y-4">
+          <div class="bg-[#171717] p-5 rounded-xl border border-outline-variant/30">
+            <div class="flex items-center gap-3 text-primary mb-2">
+              <span class="material-symbols-outlined text-xl">store</span>
+              <h4 class="font-bold text-sm text-on-surface">گالری مرکزی فرشته</h4>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              تهران، خیابان فرشته (شهید فیاضی)، مرکز تجاری پایتخت، طبقه همکف، پلاک ۱۲
+            </p>
+            <span class="text-[11px] text-primary/80 mt-2 block">تلفن: ۰۲۱-۲۲۰۰-۳۳۴۴</span>
+          </div>
+
+          <div class="bg-[#171717] p-5 rounded-xl border border-outline-variant/30">
+            <div class="flex items-center gap-3 text-primary mb-2">
+              <span class="material-symbols-outlined text-xl">diamond</span>
+              <h4 class="font-bold text-sm text-on-surface">شو روم VIP زعفرانیه</h4>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              تهران، زعفرانیه، مرکز خرید پالادیوم، طبقه دوم اداری، واحد ۲۰۴ (فقط با هماهنگی قبلی)
+            </p>
+            <span class="text-[11px] text-primary/80 mt-2 block">ساعات بازدید: ۱۱ الی ۲۰ روزهای شنبه تا پنجشنبه</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking Form -->
+      <div class="lg:col-span-7">
+        <div class="glass-panel p-8 md:p-10 rounded-2xl border border-outline-variant/30 deep-shadow">
+          <span class="text-xs text-primary font-bold tracking-widest uppercase block mb-2">فرم آنلاین</span>
+          <h3 class="text-2xl font-bold text-on-surface mb-6">رزرو وقت بازدید یا پیام مستقیم</h3>
+          
+          <form id="contact-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs text-on-surface-variant mb-2">نام و نام خانوادگی *</label>
+                <input type="text" id="form-name" required placeholder="مثال: سارا رادمنش" class="w-full bg-[#1c1b1b] border border-outline-variant/50 focus:border-primary focus:ring-0 text-on-surface text-sm rounded-lg px-4 py-3">
+              </div>
+              <div>
+                <label class="block text-xs text-on-surface-variant mb-2">شماره تماس (واتساپ) *</label>
+                <input type="tel" id="form-phone" required dir="ltr" placeholder="0912..." class="w-full bg-[#1c1b1b] border border-outline-variant/50 focus:border-primary focus:ring-0 text-on-surface text-sm rounded-lg px-4 py-3">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs text-on-surface-variant mb-2">موضوع درخواست</label>
+                <select id="form-subject" class="w-full bg-[#1c1b1b] border border-outline-variant/50 focus:border-primary focus:ring-0 text-on-surface text-sm rounded-lg px-4 py-3">
+                  <option value="رزرو وقت شو روم VIP">رزرو وقت شو روم VIP</option>
+                  <option value="مشاوره خرید طلا و جواهر">مشاوره خرید طلا و جواهر</option>
+                  <option value="سفارش طراحی اختصاصی">سفارش طراحی اختصاصی</option>
+                  <option value="پیگیری سفارش قبلی">پیگیری سفارش قبلی</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-on-surface-variant mb-2">شعبه مورد نظر</label>
+                <select id="form-branch" class="w-full bg-[#1c1b1b] border border-outline-variant/50 focus:border-primary focus:ring-0 text-on-surface text-sm rounded-lg px-4 py-3">
+                  <option value="فرشته (مرکزی)">شعبه فرشته (مرکزی)</option>
+                  <option value="پالادیوم زعفرانیه (VIP)">پالادیوم زعفرانیه (VIP)</option>
+                  <option value="مشاوره آنلاین تصویری">مشاوره آنلاین تصویری</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-on-surface-variant mb-2">توضیحات یا پیام شما</label>
+              <textarea id="form-message" rows="4" placeholder="اگر در مورد مدل یا بودجه مشخصی سوال دارید اینجا بنویسید..." class="w-full bg-[#1c1b1b] border border-outline-variant/50 focus:border-primary focus:ring-0 text-on-surface text-sm rounded-lg px-4 py-3"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full py-4 rounded-xl font-bold text-sm mt-4">
+              <span>ثبت درخواست و انتقال به واتساپ</span>
+              <span class="material-symbols-outlined text-sm">send</span>
+            </button>
+          </form>
+
+          <div id="form-success" class="hidden mt-4 p-4 bg-primary/20 border border-primary/50 rounded-xl text-center text-xs text-primary font-bold">
+            درخواست شما با موفقیت ثبت شد و به مشاوران واتساپ ارسال می‌گردد.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#0e0e0e] border-t border-outline-variant/40 py-16 px-6 md:px-20 text-center">
+    <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-right">
+        <a class="text-xl font-black text-primary tracking-widest uppercase" href="index.html">ZARRIN NOIR</a>
+        <p class="text-xs text-on-surface-variant mt-1 font-light">گالری طلا و جواهرات نفیس دست‌ساز</p>
+      </div>
+      <div class="flex gap-6 text-sm text-on-surface-variant">
+        <a href="index.html" class="hover:text-primary">خانه</a>
+        <a href="products.html" class="hover:text-primary">فروشگاه</a>
+        <a href="about.html" class="hover:text-primary">درباره ما</a>
+        <a href="blog.html" class="hover:text-primary">مجله</a>
+        <a href="contact.html" class="text-primary font-bold">تماس</a>
+      </div>
+      <p class="text-xs text-on-surface-variant/60 font-light">© ۲۰۲۴ کلیه حقوق محفوظ است.</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const phone = document.getElementById('form-phone').value;
+      const subject = document.getElementById('form-subject').value;
+      const branch = document.getElementById('form-branch').value;
+      const msg = document.getElementById('form-message').value;
+
+      const text = `سلام، درخواست جدید ثبت شد:%0Aنام: ${encodeURIComponent(name)}%0Aشماره: ${encodeURIComponent(phone)}%0Aموضوع: ${encodeURIComponent(subject)}%0Aشعبه: ${encodeURIComponent(branch)}%0Aپیام: ${encodeURIComponent(msg)}`;
+      
+      document.getElementById('form-success').classList.remove('hidden');
+      setTimeout(() => {
+        window.open(`https://wa.me/qr/3DDS2KO3LDMOC1?text=${text}`, '_blank');
+      }, 600);
+    }
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

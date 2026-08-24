@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html class="dark" dir="rtl" lang="fa">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Zarrin Noir - گالری جواهرات نفیس زرین نوآر</title>
+  <meta name="description" content="انتخابی از طلا و جواهرات فاخر دست‌ساز با طراحی اصیل ایرانی، تلفیقی از شکوه، اصالت و روایتی ابدی." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts: Vazirmatn & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Tailwind Custom Configuration matching Stitch Palette -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#131313",
+            "surface-dim": "#131313",
+            "surface-tint": "#e3c282",
+            "surface-container-lowest": "#0e0e0e",
+            "background": "#131313",
+            "outline-variant": "#4d463a",
+            "primary": "#e5c484",
+            "surface-container-highest": "#353534",
+            "on-surface": "#e5e2e1",
+            "primary-fixed-dim": "#e3c282",
+            "on-secondary": "#32302b",
+            "secondary": "#cac6be",
+            "on-primary": "#402d00",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-low": "#1c1b1b",
+            "on-background": "#e5e2e1",
+            "primary-container": "#c8a96b",
+            "on-primary-container": "#533d09",
+            "outline": "#998f81",
+            "primary-fixed": "#ffdea0",
+            "on-surface-variant": "#d0c5b5"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "margin-desktop": "80px",
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "section-gap": "120px",
+            "container-max": "1440px"
+          },
+          fontFamily: {
+            "sans": ["Vazirmatn", "sans-serif"],
+            "body-lg": ["Vazirmatn", "sans-serif"],
+            "body-md": ["Vazirmatn", "sans-serif"],
+            "headline-xl": ["Vazirmatn", "sans-serif"],
+            "headline-md": ["Vazirmatn", "sans-serif"],
+            "headline-lg": ["Vazirmatn", "sans-serif"],
+            "label-sm": ["Vazirmatn", "sans-serif"]
+          },
+          fontSize: {
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-xl": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "42px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body class="antialiased selection:bg-primary selection:text-surface bg-[#131313] text-[#e5e2e1]">
+
+  <!-- TopNavBar (Shared Component) -->
+  <nav class="fixed top-0 w-full z-50 bg-[#131313]/20 backdrop-blur-xl border-b-[0.5px] border-white/20 shadow-2xl transition-all duration-500" id="main-nav">
+    <div class="max-w-[1440px] mx-auto flex flex-row-reverse justify-between items-center px-6 md:px-20 py-6 w-full">
+      <!-- Brand Logo -->
+      <a class="font-headline-lg text-2xl md:text-3xl text-primary font-black uppercase tracking-widest hover:scale-105 duration-300 transition-transform flex items-center gap-2" href="index.html">
+        <span class="text-gradient-gold">ZARRIN NOIR</span>
+      </a>
+
+      <!-- Navigation Links (Desktop) -->
+      <ul class="hidden md:flex flex-row-reverse gap-8 items-center">
+        <li><a class="font-body-md text-primary font-bold transition-colors bg-white/5 px-4 py-1.5 rounded" href="index.html">خانه</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="products.html">فروشگاه</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="about.html">درباره ما</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="blog.html">مجله</a></li>
+        <li><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors hover:bg-white/5 px-4 py-1.5 rounded" href="contact.html">تماس با ما</a></li>
+      </ul>
+
+      <!-- Trailing Icons -->
+      <div class="flex flex-row-reverse gap-3 md:gap-4 items-center">
+        <a href="products.html" class="text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 hover:bg-white/5 p-2 rounded-full relative" title="سبد خرید">
+          <span class="material-symbols-outlined" style='font-variation-settings: "wght" 200;'>shopping_bag</span>
+          <span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+        </a>
+        <a href="products.html" class="text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 hover:bg-white/5 p-2 rounded-full" title="علاقه‌مندی‌ها">
+          <span class="material-symbols-outlined" style='font-variation-settings: "wght" 200;'>favorite</span>
+        </a>
+        <a href="contact.html" class="text-on-surface-variant hover:text-primary transition-colors hover:scale-105 duration-300 hover:bg-white/5 p-2 rounded-full hidden md:block" title="حساب VIP">
+          <span class="material-symbols-outlined" style='font-variation-settings: "wght" 200;'>person</span>
+        </a>
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface-variant hover:text-primary p-2">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#131313]/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 transition-all duration-300">
+      <div class="flex flex-col gap-4 text-right">
+        <a class="text-primary font-bold py-2 border-b border-white/5" href="index.html">خانه</a>
+        <a class="text-on-surface hover:text-primary py-2 border-b border-white/5" href="products.html">فروشگاه جواهرات</a>
+        <a class="text-on-surface hover:text-primary py-2 border-b border-white/5" href="about.html">درباره ما و اصالت</a>
+        <a class="text-on-surface hover:text-primary py-2 border-b border-white/5" href="blog.html">مجله تخصصی</a>
+        <a class="text-on-surface hover:text-primary py-2" href="contact.html">تماس و رزرو شو روم</a>
+        <div class="pt-4 mt-2 border-t border-white/10 flex justify-center">
+          <a href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank" class="btn-primary w-full py-3 rounded-full text-center">
+            مشاوره و خرید در واتساپ
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Floating WhatsApp VIP Button -->
+  <a aria-label="تماس در واتساپ" class="fixed bottom-8 left-8 z-[100] glass-panel p-4 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 deep-shadow group" href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank">
+    <svg class="w-8 h-8 text-primary group-hover:text-primary-fixed" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+    </svg>
+  </a>
+
+  <!-- 1. Cinematic Scroll-Driven Video Hero Section -->
+  <header class="relative w-full h-screen min-h-[820px] flex items-center justify-center overflow-hidden pt-24 hero-sticky-container">
+    <!-- Video / Image Background Layer -->
+    <div class="absolute inset-0 z-0 hero-video-wrapper">
+      <video class="hero-video-element" preload="auto" muted playsinline webkit-playsinline disablepictureinpicture disableremoteplayback poster="https://lh3.googleusercontent.com/aida-public/AB6AXuAa0sRS1i2ibzxJHx_5ayOEsbvFfhd9mf_2rLm3ZpWvfi-732L-ziNsyAqZN_JE8vRxNvZoTDG95ptZo1Ne3wEuaeyszv3azFTlfjDwLBERC8BquHz3QglaJV9HCbWah6vpLSSEclWf18g5WdhBkAk4zi9lE9hfTTf5gn3XD0fKBo19AqcbW9hLNsE9aqB9Zc8Z9PmScfqITSRjAeTEw5iVeD2oT0kuoSo1eIpmvGcxH3DwffKULmY_PQ">
+        <source src="https://novaitland.com/wp-content/uploads/2026/08/Gold-Bar-Becoming-Jewelry-Collec1.mp4" type="video/mp4">
+      </video>
+      <!-- Vignette Gradient -->
+      <div class="hero-vignette-overlay"></div>
+    </div>
+
+    <!-- Hero Content Overlay -->
+    <div class="relative z-10 text-center max-w-4xl px-4 mx-auto flex flex-col items-center gap-8 hero-content-anim">
+      <!-- Tag / Subtitle -->
+      <div class="glass-panel px-4 py-1 rounded-full flex items-center gap-2 border border-primary/30">
+        <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+        <span class="font-label-sm text-xs text-primary font-semibold tracking-wider">کالکشن سلطنتی سال ۱۴۰۴ | HaUte Joaillerie</span>
+      </div>
+
+      <h1 class="font-headline-xl text-4xl sm:text-5xl md:text-6xl text-on-surface tracking-tight font-black leading-tight drop-shadow-2xl">
+        درخشش، برای <span class="text-gradient-gold">لحظه‌های ماندگار</span>
+      </h1>
+      
+      <p class="font-body-lg text-lg md:text-xl text-on-surface-variant max-w-2xl text-center leading-relaxed font-light">
+        انتخابی از طلا و جواهرات فاخر، طراحی شده برای کسانی که به دنبال اصالت، شکوه و روایتی ابدی در هر قطعه هستند.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-5 mt-4 w-full justify-center">
+        <a class="bg-primary/20 backdrop-blur-xl text-primary border border-primary/30 font-label-sm text-sm px-10 py-4 rounded-full uppercase tracking-widest text-center flex items-center justify-center gap-2 hover:bg-primary/30 hover:shadow-[0_0_30px_rgba(229,196,132,0.3)] transition-all duration-300" href="#collection">
+          <span>مشاهده کالکشن</span>
+          <span class="material-symbols-outlined text-sm">arrow_left_alt</span>
+        </a>
+        <a class="bg-white/5 backdrop-blur-xl text-on-surface border border-white/20 font-label-sm text-sm px-10 py-4 rounded-full uppercase tracking-widest text-center flex items-center justify-center gap-2 hover:bg-white/10 transition-all duration-300" href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank">
+          <svg class="w-5 h-5 text-primary" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+          </svg>
+          <span>مشاوره و خرید در واتساپ</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 animate-bounce">
+      <span class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">کشف کنید</span>
+      <span class="material-symbols-outlined text-primary font-light">keyboard_arrow_down</span>
+    </div>
+  </header>
+
+  <!-- 2. Trust Strip (Stitch Exact Component) -->
+  <section class="w-full py-10 bg-[#0e0e0e] border-y border-outline-variant/30">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-20">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-x-reverse divide-outline-variant/20">
+        <div class="flex flex-col items-center text-center gap-3 px-4 reveal-up">
+          <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-primary mb-2">
+            <span class="material-symbols-outlined" style='font-variation-settings: "wght" 200;'>workspace_premium</span>
+          </div>
+          <h3 class="font-body-md text-base font-bold text-on-surface">اصالت تضمین شده</h3>
+          <p class="font-label-sm text-xs text-on-surface-variant/70 font-light">طلای ۱۸ عیار استاندارد</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center gap-3 px-4 reveal-up" style="transition-delay: 100ms;">
+          <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-primary mb-2">
+            <span class="material-symbols-outlined" style='font-variation-settings: "wght" 200;'>support_agent</span>
+          </div>
+          <h3 class="font-body-md text-base font-bold text-on-surface">مشاوره تخصصی</h3>
+          <p class="font-label-sm text-xs text-on-surface-variant/70 font-light">همراهی در انتخاب بهترین</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center gap-3 px-4 reveal-up" style="transition-delay: 200ms;">
+          <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-primary mb-2">
+            <span class="material-symbols-outlined" style='font-variation-settings: "wght" 200;'>redeem</span>
+          </div>
+          <h3 class="font-body-md text-base font-bold text-on-surface">بسته‌بندی فاخر</h3>
+          <p class="font-label-sm text-xs text-on-surface-variant/70 font-light">برازنده هدیه دادن</p>
+        </div>
+
+        <div class="flex flex-col items-center text-center gap-3 px-4 reveal-up" style="transition-delay: 300ms;">
+          <div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center text-primary mb-2">
+            <span class="material-symbols-outlined" style='font-variation-settings: "wght" 200;'>chat</span>
+          </div>
+          <h3 class="font-body-md text-base font-bold text-on-surface">پشتیبانی واتساپ</h3>
+          <p class="font-label-sm text-xs text-on-surface-variant/70 font-light">پاسخگویی سریع و ایمن</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Product Grid (Stitch Exact Component with Real Images & Metadata) -->
+  <section class="w-full py-24 md:py-32 bg-[#131313] relative" id="collection">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-20">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal-up">
+        <div class="max-w-xl">
+          <span class="font-label-sm text-xs text-primary uppercase tracking-widest block mb-4">کالکشن جدید</span>
+          <h2 class="font-headline-lg text-3xl md:text-4xl text-on-surface font-bold">
+            شاهکارهای <span class="text-gradient-gold">ظریف</span>
+          </h2>
+        </div>
+        <a class="group flex items-center gap-2 font-label-sm text-sm text-on-surface-variant hover:text-primary transition-colors" href="products.html">
+          <span>مشاهده همه محصولات</span>
+          <span class="material-symbols-outlined transition-transform group-hover:-translate-x-2">arrow_left_alt</span>
+        </a>
+      </div>
+
+      <!-- Product Grid (6 Exact Stitch Items) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Product 1: انگشتر طلای ظریف آناهیتا -->
+        <div class="group relative bg-[#171717] rounded-xl overflow-hidden hover-lift reveal-up">
+          <div class="aspect-square bg-[#1c1b1b] overflow-hidden relative p-8 flex items-center justify-center">
+            <img class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700 ease-in-out mix-blend-luminosity hover:mix-blend-normal" 
+                 alt="انگشتر طلای ظریف آناهیتا" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8NmWhw8nehoDqZizDnI0EpAOGjAuYFV6oLUE6frUVcRjgYaGkyI6Hp3IkQkelhzfr4b-Hb0yoFg2m-MqbjBg6IQ5jUN6jVr42xdJPAuFsUewtY2QuZzScaNbc19QJOW193z6KkRNqyKj10cH_r5ygxTgsZmTDLVQ3e9XUWmRnCm5eCgteoG6QxyvV3xh1o2dFaOy7LkkR5kC0OMWBj0ZrvH2N9jXubipAMbEF_6neDfZmv3k305evBg"/>
+            <div class="absolute top-4 right-4 glass-panel px-3 py-1 rounded-full border border-primary/30 z-10">
+              <span class="font-label-sm text-[10px] text-primary">جدید</span>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col gap-3 relative z-10">
+            <h3 class="font-headline-md text-lg text-on-surface font-bold group-hover:text-primary transition-colors">انگشتر طلای ظریف آناهیتا</h3>
+            <p class="font-label-sm text-xs text-on-surface-variant/60 font-light">وزن تقریبی: ۴.۵ گرم | عیار ۱۸ استاندارد</p>
+            <div class="flex justify-between items-end mt-4">
+              <span class="font-body-md text-base text-on-surface font-bold">۲۸٬۹۵۰٬۰۰۰ <span class="text-xs font-light text-on-surface-variant">تومان</span></span>
+              <a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1 font-label-sm text-xs border-b border-primary/30 pb-1 hover:border-primary" href="https://wa.me/qr/3DDS2KO3LDMOC1?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%D8%AA%D9%82%D8%A7%D8%B6%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%D8%A7%D9%86%DA%AF%D8%B4%D8%AA%D8%B1%20%D8%B7%D9%84%D8%A7%DB%8C%20%D8%B8%D8%B1%DB%8C%D9%81%20%D8%A2%D9%86%D8%A7%D9%87%DB%8C%D8%AA%D8%A7%20%D9%87%D8%B3%D8%AA%D9%85." target="_blank">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                سفارش در واتساپ
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2: گردنبند مینیمال خورشید -->
+        <div class="group relative bg-[#171717] rounded-xl overflow-hidden hover-lift reveal-up" style="transition-delay: 100ms;">
+          <div class="aspect-square bg-[#1c1b1b] overflow-hidden relative p-8 flex items-center justify-center">
+            <img class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700 ease-in-out mix-blend-luminosity hover:mix-blend-normal" 
+                 alt="گردنبند مینیمال خورشید" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuB77kL0eS8_dnF-USl3seLJnoX-7dL_Oz1HOlaH5snwcJVte9ApLS0QSrjIIv7V11bP4aQzHzs58q5hiPhY8Sy1URN9R1c6-sjrX6TpUTKMzZmYL-kU7UzVN2eiQnOLcRVYvA_vnm8ujAEhwR-EFTy9mxNmXoRl2k4vgQHUhp1otwYFkYt_wFxi2dJLUmMmKkarO9bVGbfruca1d1PSkE1JArAQmjhm7OjOsGf_KH4FsTpnMAbKy_X4Bg"/>
+          </div>
+          <div class="p-6 flex flex-col gap-3 relative z-10">
+            <h3 class="font-headline-md text-lg text-on-surface font-bold group-hover:text-primary transition-colors">گردنبند مینیمال خورشید</h3>
+            <p class="font-label-sm text-xs text-on-surface-variant/60 font-light">وزن تقریبی: ۶.۲ گرم | عیار ۱۸ استاندارد</p>
+            <div class="flex justify-between items-end mt-4">
+              <span class="font-body-md text-base text-on-surface font-bold">۳۹٬۸۰۰٬۰۰۰ <span class="text-xs font-light text-on-surface-variant">تومان</span></span>
+              <a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1 font-label-sm text-xs border-b border-primary/30 pb-1 hover:border-primary" href="https://wa.me/qr/3DDS2KO3LDMOC1?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%D8%AA%D9%82%D8%A7%D8%B6%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%DA%AF%D8%B1%D8%AF%D9%86%D8%A8%D9%86%D8%AF%20%D9%85%DB%8C%D9%86%DB%8C%D9%85%D8%A7%D9%84%20%D8%AE%D9%88%D8%B1%D8%B4%DB%8C%D8%AF%20%D9%87%D8%B3%D8%AA%D9%85." target="_blank">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                سفارش در واتساپ
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3: گوشواره آویز طرح اسلیمی -->
+        <div class="group relative bg-[#171717] rounded-xl overflow-hidden hover-lift reveal-up" style="transition-delay: 200ms;">
+          <div class="aspect-square bg-[#1c1b1b] overflow-hidden relative p-8 flex items-center justify-center">
+            <img class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700 ease-in-out mix-blend-luminosity hover:mix-blend-normal" 
+                 alt="گوشواره آویز طرح اسلیمی" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCtQoHbhvlOejFQQAMlRjQ5UDEQekngN1_joi7vOXJ8ZyiSJag6eVOezZD7lBgT1tfjlaugWInA82qhKzWbDnUhhLM2KrmVD43h6Bfl47sEq_hWF5FKVk3Y2E0hVnOB_O3HgoZYrLDPlLuQDDpWI952LDl-S0w-eoDSylLT_SQaegEI_0Dx6UZh3JQ4ax04OdLQkGXuE_0_Y1U01ewXskvipghjDUX_g456g5TV-EGXD0eSGPor0L5Nw"/>
+          </div>
+          <div class="p-6 flex flex-col gap-3 relative z-10">
+            <h3 class="font-headline-md text-lg text-on-surface font-bold group-hover:text-primary transition-colors">گوشواره آویز طرح اسلیمی</h3>
+            <p class="font-label-sm text-xs text-on-surface-variant/60 font-light">وزن تقریبی: ۸.۱ گرم | عیار ۱۸ استاندارد</p>
+            <div class="flex justify-between items-end mt-4">
+              <span class="font-body-md text-base text-on-surface font-bold">۵۲٬۱۰۰٬۰۰۰ <span class="text-xs font-light text-on-surface-variant">تومان</span></span>
+              <a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1 font-label-sm text-xs border-b border-primary/30 pb-1 hover:border-primary" href="https://wa.me/qr/3DDS2KO3LDMOC1?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%D8%AA%D9%82%D8%A7%D8%B6%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%DA%AF%D9%88%D8%B4%D9%88%D8%A7%D8%B1%D9%87%20%D8%A2%D9%88%DB%8C%D8%B2%20%D8%B7%D8%B1%D8%AD%20%D8%A7%D8%B3%D9%84%DB%8C%D9%85%DB%8C%20%D9%87%D8%B3%D8%AA%D9%85." target="_blank">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                سفارش در واتساپ
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4: دستبند زنجیری کلاسیک -->
+        <div class="group relative bg-[#171717] rounded-xl overflow-hidden hover-lift reveal-up">
+          <div class="aspect-square bg-[#1c1b1b] overflow-hidden relative p-8 flex items-center justify-center">
+            <img class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700 ease-in-out mix-blend-luminosity hover:mix-blend-normal" 
+                 alt="دستبند زنجیری کلاسیک" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLg4UsfnsbQ7XCMa1b4OZ_KSP09EDAmM_8B_K3GTyg2cRy7XwyuxwQz4eCMSL2_dgZSR4VuuLPFFeRiTlL1HNGiywpHcKTgY7cqZOdijGIlgIMfNmLtv14utRzj52H9aa6FJZxdicD7kWH7-21cd980dNot4wF6TgY3SqMh45mjtGkkcMIIxj8JLCTLV_1LsLsgn3S7NQKsGi5PbXhS0dBLmI1eUn0u35D48KD3oTTXpC4JoNJJVOmRQ"/>
+          </div>
+          <div class="p-6 flex flex-col gap-3 relative z-10">
+            <h3 class="font-headline-md text-lg text-on-surface font-bold group-hover:text-primary transition-colors">دستبند زنجیری کلاسیک</h3>
+            <p class="font-label-sm text-xs text-on-surface-variant/60 font-light">وزن تقریبی: ۱۲.۴ گرم | عیار ۱۸ استاندارد</p>
+            <div class="flex justify-between items-end mt-4">
+              <span class="font-body-md text-base text-on-surface font-bold">۷۹٬۵۰۰٬۰۰۰ <span class="text-xs font-light text-on-surface-variant">تومان</span></span>
+              <a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1 font-label-sm text-xs border-b border-primary/30 pb-1 hover:border-primary" href="https://wa.me/qr/3DDS2KO3LDMOC1?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%D8%AA%D9%82%D8%A7%D8%B6%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%D8%AF%D8%B3%D8%AA%D8%A8%D9%86%D8%AF%20%D8%B2%D9%86%D8%AC%DB%8C%D8%B1%DB%8C%20%DA%A9%D9%84%D8%A7%D8%B3%DB%8C%DA%A9%20%D9%87%D8%B3%D8%AA%D9%85." target="_blank">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                سفارش در واتساپ
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5: انگشتر نگین‌دار شباهنگ -->
+        <div class="group relative bg-[#171717] rounded-xl overflow-hidden hover-lift reveal-up" style="transition-delay: 100ms;">
+          <div class="aspect-square bg-[#1c1b1b] overflow-hidden relative p-8 flex items-center justify-center">
+            <img class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700 ease-in-out mix-blend-luminosity hover:mix-blend-normal" 
+                 alt="انگشتر نگین‌دار شباهنگ" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV_zzHsSgEM1GTGrubXRdTuNVqLDYE0Xc6w9YeunJay4vnVUHBfnaRPa70zTOCADZxUr4b8j6bwCLOy7zvefwcT7BESirKUAKyuf2-qiBWZOnSZZCSD3xwSXbHqMZjSOq_2wbwoEcWIpdbugahNLQgrK0dHHWoouADSNbqnunRL2akBAvVj_5lQyPMbMutSJrcvDlXYVXlsLLlDMqQ2E2qUPIVEQ5lgbYigje77w6PdvtrqHxNvFjujQ"/>
+          </div>
+          <div class="p-6 flex flex-col gap-3 relative z-10">
+            <h3 class="font-headline-md text-lg text-on-surface font-bold group-hover:text-primary transition-colors">انگشتر نگین‌دار شباهنگ</h3>
+            <p class="font-label-sm text-xs text-on-surface-variant/60 font-light">وزن تقریبی: ۵.۸ گرم | عیار ۱۸ استاندارد</p>
+            <div class="flex justify-between items-end mt-4">
+              <span class="font-body-md text-base text-on-surface font-bold">۳۷٬۲۰۰٬۰۰۰ <span class="text-xs font-light text-on-surface-variant">تومان</span></span>
+              <a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1 font-label-sm text-xs border-b border-primary/30 pb-1 hover:border-primary" href="https://wa.me/qr/3DDS2KO3LDMOC1?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%D8%AA%D9%82%D8%A7%D8%B6%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%D8%A7%D9%86%DA%AF%D8%B4%D8%AA%D8%B1%20%D9%86%DA%AF%DB%8C%D9%86%E2%80%8C%D8%AF%D8%A7%D8%B1%20%D8%B4%D8%A8%D8%A7%D9%87%D9%86%DA%AF%20%D9%87%D8%B3%D8%AA%D9%85." target="_blank">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                سفارش در واتساپ
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6: گردنبند چند لایه رویا -->
+        <div class="group relative bg-[#171717] rounded-xl overflow-hidden hover-lift reveal-up" style="transition-delay: 200ms;">
+          <div class="aspect-square bg-[#1c1b1b] overflow-hidden relative p-8 flex items-center justify-center">
+            <img class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-700 ease-in-out mix-blend-luminosity hover:mix-blend-normal" 
+                 alt="گردنبند چند لایه رویا" 
+                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0WdOyyD8OrY6NWjh8APp_OQ8a4ZGERGuR-OEqmJBG_8aHnvyEX6_eQcwLKSfGhVt9VzR2zSpiVavGaIe7Od4zcJunf-J-g_rcGeTNQemHUdgNBEoCpu7RuoqJgEFiNMFnJ8fkTe74OH5RHH8WPsgM55X0hOBII0mh2VaNgJK-x6UpbZISEHmQlaIQcc_I1M1j7DFb2lmq5ZXAwlL1fLVH-94c23o7BMDDfPGBqwU4TMzauQf9SyqgMg"/>
+          </div>
+          <div class="p-6 flex flex-col gap-3 relative z-10">
+            <h3 class="font-headline-md text-lg text-on-surface font-bold group-hover:text-primary transition-colors">گردنبند چند لایه رویا</h3>
+            <p class="font-label-sm text-xs text-on-surface-variant/60 font-light">وزن تقریبی: ۹.۵ گرم | عیار ۱۸ استاندارد</p>
+            <div class="flex justify-between items-end mt-4">
+              <span class="font-body-md text-base text-on-surface font-bold">۶۱٬۰۰۰٬۰۰۰ <span class="text-xs font-light text-on-surface-variant">تومان</span></span>
+              <a class="text-primary hover:text-primary-fixed transition-colors flex items-center gap-1 font-label-sm text-xs border-b border-primary/30 pb-1 hover:border-primary" href="https://wa.me/qr/3DDS2KO3LDMOC1?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D9%85%D8%AA%D9%82%D8%A7%D8%B6%DB%8C%20%D8%B3%D9%81%D8%A7%D8%B1%D8%B4%20%DA%AF%D8%B1%D8%AF%D9%86%D8%A8%D9%86%D8%AF%20%DA%8check%D9%86%D8%AF%20%D9%84%D8%A7%DB%8C%D9%87%20%D8%B1%D9%88%DB%8C%D8%A7%20%D9%87%D8%B3%D8%AA%D9%85." target="_blank">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                سفارش در واتساپ
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Collection Link Button -->
+      <div class="mt-16 flex justify-center reveal-up">
+        <a class="bg-white/5 backdrop-blur-xl text-on-surface border border-white/20 font-label-sm text-sm px-12 py-4 rounded-full uppercase tracking-widest text-center transition-all hover:bg-white/10 hover:border-primary/40 hover:scale-105" href="products.html">
+          نمایش تمام کالکشن‌ها در فروشگاه
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Brand Story Section (Stitch Exact Lookbook Layout) -->
+  <section class="w-full py-24 md:py-32 bg-[#0e0e0e] relative overflow-hidden">
+    <!-- Abstract blur element in background -->
+    <div class="absolute -left-[20%] top-[20%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-[1440px] mx-auto px-6 md:px-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Image Side (Lookbook) -->
+        <div class="lg:col-span-7 relative h-[450px] md:h-[600px] w-full rounded-2xl overflow-hidden reveal-up">
+          <img alt="داستان برند زرین نوآر" class="absolute inset-0 w-full h-full object-cover object-center filter grayscale-[25%] contrast-125 hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGO7mD5nWlRank4Nhah4GoRlbce41elQ4phvnuQgvs1K5qaPWfLdK-h7f9UprKjQ38PEUxLjnRXEE50vUAZklxT5aKobcWsYABt4v4rOk36xLqn9yX4BZV23xeOaoj2N8Xr-vMVXaqK_9aZA4ejwb5WAIaNMnELZMONctwV9ahCgSWlnz1ST_5Tucc7Sto7tthCYapOD6MsWFqMBP5uMSq__SYQUd-d7qUKZckRex_bX5Xf-CCtHB12A"/>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#0e0e0e] via-transparent to-transparent opacity-80 mix-blend-multiply"></div>
+          
+          <!-- Floating decorative element -->
+          <div class="absolute bottom-8 right-8 glass-panel p-6 max-w-xs rounded-xl border-l-2 border-l-primary deep-shadow hidden md:block">
+            <p class="font-body-md text-sm text-on-surface-variant italic leading-relaxed">
+              "هنر دستانی که طلا را به احساس، و فلز را به خاطره‌ای جاودان تبدیل می‌کنند."
+            </p>
+          </div>
+        </div>
+
+        <!-- Text Side -->
+        <div class="lg:col-span-5 flex flex-col gap-8 reveal-up z-10" style="transition-delay: 200ms;">
+          <span class="font-label-sm text-xs text-primary uppercase tracking-widest flex items-center gap-4">
+            <span class="w-12 h-[1px] bg-primary block"></span>
+            داستان برند زرین نوآر
+          </span>
+
+          <h2 class="font-headline-xl text-3xl md:text-5xl text-on-surface leading-tight font-black">
+            هر قطعه، <br/>
+            <span class="text-on-surface-variant font-light text-3xl md:text-4xl mt-2 block">داستانی برای روایت دارد</span>
+          </h2>
+
+          <p class="font-body-lg text-base text-on-surface-variant/80 leading-loose text-justify font-light">
+            در گالری زرین نوآر، ما معتقدیم که جواهرات تنها زینت‌آلات نیستند؛ آن‌ها حامل احساسات، میراث و لحظات تکرارنشدنی زندگی شما هستند. طراحی‌های ما تلفیقی از هنر اصیل ایرانی و مینیمالیسم مدرن است.
+          </p>
+
+          <p class="font-body-lg text-base text-on-surface-variant/80 leading-loose text-justify font-light">
+            هر انگشتر، گردنبند یا دستبند، با وسواس و دقتی بی‌نظیر از بهترین عیار طلا خلق می‌شود تا نه تنها امروز، بلکه برای نسل‌ها بدرخشد و راوی داستان شکوه شما باشد.
+          </p>
+
+          <div class="mt-4">
+            <a class="inline-flex items-center gap-2 text-primary font-label-sm text-sm uppercase tracking-wider hover:gap-4 transition-all duration-300 border-b border-primary/30 pb-1 hover:border-primary" href="about.html">
+              <span>درباره میراث ما بیشتر بخوانید</span>
+              <span class="material-symbols-outlined text-sm">arrow_left_alt</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Featured Collection (Stitch Exact Cinematic Highlight) -->
+  <section class="w-full h-[80vh] min-h-[600px] relative flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 image-overlay z-0">
+      <img alt="کالکشن رویال" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-[20s] ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD38_RodRENtZuE092H-56IxkaC1rcsveZ5AsXOVJ3fLyS17bCHvijVJOtnYRoGU1tPnxVuzz09THtAzSphjRKLaqTghP9dPp7RxgU7wFbADtQ4Oeh3FY8GDgJFt_F3PgWLU6XKPciLpiODeT551UbXKV7shoGvHxDnPjaAfSaZMem2sx-BWo1Lg8BwnCYMhG8rSr9ZLRVV-aJliLgY94xImx75aW5Ot65ByDBZ7e6guJJTlPsJ0a9ZFw"/>
+    </div>
+    
+    <div class="relative z-10 text-center max-w-3xl px-4 flex flex-col items-center gap-6 glass-panel p-10 md:p-16 rounded-2xl reveal-up">
+      <span class="material-symbols-outlined text-primary text-4xl font-light mb-2">diamond</span>
+      <h2 class="font-headline-lg text-3xl md:text-5xl text-on-surface font-bold tracking-tight">کالکشن رویال</h2>
+      <p class="font-body-lg text-base md:text-lg text-on-surface-variant font-light mb-4">تجلی قدرت و ظرافت در طراحی‌های انحصاری طلای دست‌ساز.</p>
+      <a class="bg-primary/20 backdrop-blur-xl text-primary border border-primary/30 font-label-sm text-sm px-10 py-3.5 rounded-full uppercase tracking-widest text-center hover:bg-primary/30 transition-all duration-300 shadow-[0_0_20px_rgba(229,196,132,0.3)]" href="products.html">
+        کشف کالکشن در فروشگاه
+      </a>
+    </div>
+  </section>
+
+  <!-- 6. Educational/Trust Section (Stitch Exact Component) -->
+  <section class="w-full py-24 md:py-32 bg-[#131313] relative">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-20">
+      <div class="text-center mb-16 reveal-up">
+        <span class="font-label-sm text-xs text-primary uppercase tracking-widest block mb-4">راهنمای خرید</span>
+        <h2 class="font-headline-lg text-3xl md:text-4xl text-on-surface font-bold">
+          چرا انتخاب ما؟
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="glass-panel p-10 rounded-2xl flex flex-col gap-6 hover-lift reveal-up group">
+          <div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary font-light">balance</span>
+          </div>
+          <h3 class="font-headline-md text-xl text-on-surface font-bold">شفافیت در وزن و عیار</h3>
+          <p class="font-body-md text-on-surface-variant/80 font-light leading-relaxed">
+            تمامی قطعات ما با فاکتور رسمی و تضمین دقیق وزن و عیار ۱۸ ارائه می‌شوند. هیچ هزینه پنهانی در محاسبات وجود ندارد.
+          </p>
+        </div>
+
+        <div class="glass-panel p-10 rounded-2xl flex flex-col gap-6 hover-lift reveal-up group" style="transition-delay: 100ms;">
+          <div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary font-light">architecture</span>
+          </div>
+          <h3 class="font-headline-md text-xl text-on-surface font-bold">طراحی مینیمال و کاربردی</h3>
+          <p class="font-body-md text-on-surface-variant/80 font-light leading-relaxed">
+            تمرکز ما بر طراحی‌هایی است که نه تنها در مهمانی‌ها، بلکه در استایل روزمره شما نیز جلوه‌ای لوکس و بی‌نقص داشته باشند.
+          </p>
+        </div>
+
+        <div class="glass-panel p-10 rounded-2xl flex flex-col gap-6 hover-lift reveal-up group" style="transition-delay: 200ms;">
+          <div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-3xl text-primary font-light">local_shipping</span>
+          </div>
+          <h3 class="font-headline-md text-xl text-on-surface font-bold">ارسال ایمن و بیمه‌شده</h3>
+          <p class="font-body-md text-on-surface-variant/80 font-light leading-relaxed">
+            سفارشات شما در بسته‌بندی‌های اختصاصی و از طریق پیک‌های معتمد و بیمه‌شده در سریع‌ترین زمان ممکن به دستتان می‌رسد.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. WhatsApp Sales Section (Stitch Exact Component) -->
+  <section class="w-full py-24 bg-[#0a0a0a] relative border-t border-b border-primary/10 overflow-hidden">
+    <!-- Abstract gradient background -->
+    <div class="absolute inset-0 opacity-20" style="background: radial-gradient(circle at 50% 50%, #e3c282 0%, transparent 60%); mix-blend-mode: screen;"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center gap-8 reveal-up">
+      <div class="w-20 h-20 bg-surface rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(229,196,132,0.3)] mb-4">
+        <svg class="w-10 h-10 text-primary" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+        </svg>
+      </div>
+      
+      <h2 class="font-headline-lg text-3xl md:text-4xl text-on-surface font-bold">
+        برای انتخاب قطعه مناسب، <span class="text-primary">تنها نیستید</span>
+      </h2>
+      
+      <p class="font-body-lg text-base md:text-lg text-on-surface-variant/80 font-light max-w-2xl text-center leading-relaxed">
+        مشاوران گالری زرین نوآر آماده‌اند تا با توجه به سلیقه، بودجه و استایل شما، بهترین پیشنهادها را به صورت اختصاصی برایتان ارسال کنند. همین حالا پیام دهید.
+      </p>
+      
+      <a class="bg-primary/20 backdrop-blur-xl text-primary border border-primary/30 font-headline-md text-base md:text-lg px-12 py-5 rounded-full mt-4 shadow-[0_10px_30px_rgba(229,196,132,0.2)] hover:shadow-[0_15px_40px_rgba(229,196,132,0.4)] flex items-center gap-3 transition-all duration-500 hover:bg-primary/30 hover:scale-105" href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank">
+        <span>مشاوره اختصاصی در واتساپ</span>
+        <span class="material-symbols-outlined">arrow_left_alt</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 8. Final Cinematic CTA (Stitch Exact Component) -->
+  <section class="w-full h-[50vh] min-h-[420px] relative flex items-center justify-center mt-12 md:mt-20">
+    <div class="absolute inset-0 image-overlay z-0">
+      <div class="absolute inset-0 bg-cover bg-center bg-fixed opacity-60 mix-blend-luminosity" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVCGcDap2KYVejatam2lasIurUBrUwu63_26KazvLDlFpOOm61-s6tF43G4izxxzqp2A4r-G_-ykF_LjbZ4YgAGaohLBFtiQBY9EP3ZLWmtBY-6mTtOp44KVpdZT_txIyE5F4hY_jk7R8j0jRHQVrZQDD_ix--frhDrhWHmd7aElOKkydaZZrqfoFXmzhtM4pjm3_sKhUtF4oVlhQaVvzL6dr0ZDFwmo-GCydqqZN76yFYBRp5geqY6Q");'></div>
+      <div class="absolute inset-0 bg-surface/80"></div>
+    </div>
+    <div class="relative z-10 text-center px-4 reveal-up">
+      <h2 class="font-headline-xl text-3xl md:text-5xl text-on-surface font-black tracking-tight drop-shadow-2xl mb-8 leading-relaxed">
+        قطعه‌ای را انتخاب کنید<br/> که <span class="text-gradient-gold">برای همیشه</span> بماند.
+      </h2>
+      <div class="flex justify-center">
+        <a href="products.html" class="btn-primary px-10 py-4 rounded-full font-bold text-sm">
+          مشاهده کاتالوگ کامل
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Shared Component) -->
+  <footer class="w-full relative bg-[#0e0e0e] border-t-[0.5px] border-outline-variant/40 flex flex-col items-center px-6 md:px-20 py-20 mt-20">
+    <div class="max-w-[1440px] mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-right border-b border-outline-variant/30 pb-12">
+      
+      <!-- Brand & Contact -->
+      <div class="md:col-span-1 flex flex-col gap-6 items-center md:items-start">
+        <a class="font-headline-md text-2xl text-primary font-black tracking-widest uppercase" href="index.html">
+          ZARRIN NOIR
+        </a>
+        <p class="font-body-md text-on-surface-variant font-light text-sm leading-relaxed">
+          تجلی هنر، ظرافت و اصالت در قالب قطعاتی از طلای ناب ۱۸ عیار. گالری جواهرات فاخر دست‌ساز.
+        </p>
+        <div class="flex gap-4 mt-2">
+          <a class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="https://instagram.com" target="_blank">
+            <span class="material-symbols-outlined text-lg font-light">camera_alt</span>
+          </a>
+          <a class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank">
+            <span class="material-symbols-outlined text-lg font-light">chat</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="md:col-span-1 flex flex-col gap-4 items-center md:items-start">
+        <h4 class="font-headline-md text-lg text-on-surface mb-2 font-bold">دسترسی سریع</h4>
+        <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="index.html">خانه</a>
+        <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="products.html">فروشگاه</a>
+        <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="about.html">درباره ما</a>
+        <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="blog.html">مجله تخصصی</a>
+        <a class="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors" href="contact.html">تماس با ما</a>
+      </div>
+
+      <!-- Support -->
+      <div class="md:col-span-1 flex flex-col gap-4 items-center md:items-start">
+        <h4 class="font-headline-md text-lg text-on-surface mb-2 font-bold">شعب و تماس</h4>
+        <p class="font-body-md text-xs text-on-surface-variant leading-relaxed">
+          📍 تهران، خیابان فرشته، مرکز خرید پایتخت، پلاک ۱۲<br/>
+          📍 شو روم VIP: مجتمع پالادیوم، طبقه ۲<br/>
+          📞 تلفن تماس: <span class="text-primary font-bold">۰۲۱-۸۸۸۸-۹۹۹۹</span>
+        </p>
+        <a href="https://wa.me/qr/3DDS2KO3LDMOC1" target="_blank" class="text-xs text-primary underline">مشاوره مستقیم در واتساپ</a>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="md:col-span-1 flex flex-col gap-4 items-center md:items-start">
+        <h4 class="font-headline-md text-lg text-on-surface mb-2 font-bold">عضویت در باشگاه VIP</h4>
+        <p class="font-body-md text-sm text-on-surface-variant font-light mb-2 text-center md:text-right">برای اطلاع از رونمایی کالکشن‌های جدید، شماره یا ایمیل خود را وارد کنید.</p>
+        <div class="w-full relative">
+          <input class="w-full bg-surface-container-high border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface px-4 py-3 rounded-t-md font-body-md text-sm placeholder-on-surface-variant/50 transition-colors" dir="ltr" placeholder="شماره تماس یا ایمیل..." type="text"/>
+          <button class="absolute left-0 top-0 bottom-0 px-4 text-primary hover:text-primary-fixed transition-colors flex items-center justify-center" title="ارسال">
+            <span class="material-symbols-outlined text-lg">arrow_left_alt</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="w-full text-center mt-8">
+      <p class="font-body-md text-on-surface-variant/50 font-light text-xs uppercase tracking-widest">
+        © ۲۰۲۴ تمامی حقوق برای گالری جواهرات فاخر زرین نوآر محفوظ است.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
